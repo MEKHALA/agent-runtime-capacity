@@ -1,0 +1,49 @@
+{
+ "processes": 5,
+ "steps": 40,
+ "warmup_s": 150,
+ "window_s": 300,
+ "machine": "x86_64",
+ "runs": [
+  {
+   "sessions": 50,
+   "c_ms": 7.0011270073170735,
+   "w_mean_s": 3.3041975355460904,
+   "calls": 4459,
+   "measured_cores": 0.23993660618,
+   "predicted_cores": 0.10571892116431039,
+   "little_cores": 0.1040600844187561,
+   "measured_over_predicted": 2.269571080914512
+  },
+  {
+   "sessions": 100,
+   "c_ms": 6.750451767479675,
+   "w_mean_s": 3.3286304996037597,
+   "calls": 8833,
+   "measured_cores": 0.4998442661133333,
+   "predicted_cores": 0.20238922827404274,
+   "little_cores": 0.19875580154049324,
+   "measured_over_predicted": 2.469717733379195
+  },
+  {
+   "sessions": 200,
+   "c_ms": 7.010763420325204,
+   "w_mean_s": 3.327239931423069,
+   "calls": 17659,
+   "measured_cores": 0.9486482474933333,
+   "predicted_cores": 0.42053007178900753,
+   "little_cores": 0.41267690413174263,
+   "measured_over_predicted": 2.255839263664593
+  },
+  {
+   "sessions": 400,
+   "c_ms": 6.757784600813009,
+   "w_mean_s": 3.336773433419536,
+   "calls": 35183,
+   "measured_cores": 1.5132953316666666,
+   "predicted_cores": 0.8084607751698141,
+   "little_cores": 0.7925304520346803,
+   "measured_over_predicted": 1.871822824488677
+  }
+ ]
+}

@@ -1,0 +1,20 @@
+{
+ "processes": 5,
+ "steps": 40,
+ "warmup_s": 150,
+ "window_s": 300,
+ "machine": "x86_64",
+ "runs": [
+  {
+   "sessions": 100,
+   "c_ms": 6.704036164227642,
+   "w_mean_s": 3.3286216498415593,
+   "calls": 8836,
+   "measured_cores": 0.48547811669333335,
+   "predicted_cores": 0.20100094549555214,
+   "little_cores": 0.19745621182371814,
+   "measured_over_predicted": 2.4153026519175067
+  }
+ ],
+ "gc_disabled": true
+}

@@ -1,0 +1,682 @@
+{
+  "meta": {
+    "provider": "bedrock",
+    "model": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
+    "region": "us-east-1",
+    "recorded_at": "2026-09-03T09:49:28.717296+00:00",
+    "n_llm_samples": 50,
+    "n_tool_samples": 30,
+    "lo_tokens": 48,
+    "hi_tokens": 1536,
+    "tool_endpoints": [
+      "github_zen",
+      "httpbin_get"
+    ],
+    "conditions": "us-east-1, cross-region inference profile, on-demand Bedrock, no other load on this AWS account",
+    "dry_run": false
+  },
+  "llm": [
+    {
+      "latency_s": 3.032901291,
+      "prompt_tokens": 57,
+      "completion_tokens": 118,
+      "max_tokens_requested": 118,
+      "model": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
+      "region": "us-east-1",
+      "timestamp": "2026-09-03T09:45:00.840360+00:00"
+    },
+    {
+      "latency_s": 2.7397627910000004,
+      "prompt_tokens": 46,
+      "completion_tokens": 156,
+      "max_tokens_requested": 259,
+      "model": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
+      "region": "us-east-1",
+      "timestamp": "2026-09-03T09:45:03.580243+00:00"
+    },
+    {
+      "latency_s": 2.4575590830000014,
+      "prompt_tokens": 51,
+      "completion_tokens": 220,
+      "max_tokens_requested": 1374,
+      "model": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
+      "region": "us-east-1",
+      "timestamp": "2026-09-03T09:45:06.037889+00:00"
+    },
+    {
+      "latency_s": 2.3231002500000013,
+      "prompt_tokens": 51,
+      "completion_tokens": 164,
+      "max_tokens_requested": 363,
+      "model": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
+      "region": "us-east-1",
+      "timestamp": "2026-09-03T09:45:08.361073+00:00"
+    },
+    {
+      "latency_s": 3.7272609580000005,
+      "prompt_tokens": 64,
+      "completion_tokens": 276,
+      "max_tokens_requested": 276,
+      "model": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
+      "region": "us-east-1",
+      "timestamp": "2026-09-03T09:45:12.088415+00:00"
+    },
+    {
+      "latency_s": 1.7021919160000003,
+      "prompt_tokens": 51,
+      "completion_tokens": 78,
+      "max_tokens_requested": 78,
+      "model": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
+      "region": "us-east-1",
+      "timestamp": "2026-09-03T09:45:13.790643+00:00"
+    },
+    {
+      "latency_s": 3.8754427080000013,
+      "prompt_tokens": 57,
+      "completion_tokens": 296,
+      "max_tokens_requested": 409,
+      "model": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
+      "region": "us-east-1",
+      "timestamp": "2026-09-03T09:45:17.666185+00:00"
+    },
+    {
+      "latency_s": 3.5141477499999993,
+      "prompt_tokens": 51,
+      "completion_tokens": 268,
+      "max_tokens_requested": 1470,
+      "model": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
+      "region": "us-east-1",
+      "timestamp": "2026-09-03T09:45:21.180484+00:00"
+    },
+    {
+      "latency_s": 2.0497404999999986,
+      "prompt_tokens": 46,
+      "completion_tokens": 150,
+      "max_tokens_requested": 1447,
+      "model": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
+      "region": "us-east-1",
+      "timestamp": "2026-09-03T09:45:23.230325+00:00"
+    },
+    {
+      "latency_s": 2.607444041000001,
+      "prompt_tokens": 46,
+      "completion_tokens": 139,
+      "max_tokens_requested": 1094,
+      "model": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
+      "region": "us-east-1",
+      "timestamp": "2026-09-03T09:45:25.837798+00:00"
+    },
+    {
+      "latency_s": 1.9071899579999965,
+      "prompt_tokens": 51,
+      "completion_tokens": 68,
+      "max_tokens_requested": 68,
+      "model": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
+      "region": "us-east-1",
+      "timestamp": "2026-09-03T09:45:27.745076+00:00"
+    },
+    {
+      "latency_s": 4.362704166999997,
+      "prompt_tokens": 57,
+      "completion_tokens": 327,
+      "max_tokens_requested": 1082,
+      "model": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
+      "region": "us-east-1",
+      "timestamp": "2026-09-03T09:45:32.107826+00:00"
+    },
+    {
+      "latency_s": 1.4900510000000011,
+      "prompt_tokens": 38,
+      "completion_tokens": 92,
+      "max_tokens_requested": 151,
+      "model": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
+      "region": "us-east-1",
+      "timestamp": "2026-09-03T09:45:33.597913+00:00"
+    },
+    {
+      "latency_s": 1.4567946660000004,
+      "prompt_tokens": 46,
+      "completion_tokens": 68,
+      "max_tokens_requested": 68,
+      "model": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
+      "region": "us-east-1",
+      "timestamp": "2026-09-03T09:45:35.054749+00:00"
+    },
+    {
+      "latency_s": 3.4948808330000034,
+      "prompt_tokens": 83,
+      "completion_tokens": 133,
+      "max_tokens_requested": 144,
+      "model": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
+      "region": "us-east-1",
+      "timestamp": "2026-09-03T09:45:38.549701+00:00"
+    },
+    {
+      "latency_s": 1.4187597910000065,
+      "prompt_tokens": 38,
+      "completion_tokens": 82,
+      "max_tokens_requested": 1136,
+      "model": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
+      "region": "us-east-1",
+      "timestamp": "2026-09-03T09:45:39.968537+00:00"
+    },
+    {
+      "latency_s": 7.18928975,
+      "prompt_tokens": 46,
+      "completion_tokens": 125,
+      "max_tokens_requested": 251,
+      "model": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
+      "region": "us-east-1",
+      "timestamp": "2026-09-03T09:45:47.157859+00:00"
+    },
+    {
+      "latency_s": 5.927748541,
+      "prompt_tokens": 46,
+      "completion_tokens": 118,
+      "max_tokens_requested": 118,
+      "model": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
+      "region": "us-east-1",
+      "timestamp": "2026-09-03T09:45:53.085649+00:00"
+    },
+    {
+      "latency_s": 6.737841499999995,
+      "prompt_tokens": 46,
+      "completion_tokens": 156,
+      "max_tokens_requested": 1148,
+      "model": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
+      "region": "us-east-1",
+      "timestamp": "2026-09-03T09:45:59.823549+00:00"
+    },
+    {
+      "latency_s": 6.334013084000006,
+      "prompt_tokens": 57,
+      "completion_tokens": 350,
+      "max_tokens_requested": 581,
+      "model": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
+      "region": "us-east-1",
+      "timestamp": "2026-09-03T09:46:06.157682+00:00"
+    },
+    {
+      "latency_s": 5.479472707999989,
+      "prompt_tokens": 83,
+      "completion_tokens": 186,
+      "max_tokens_requested": 563,
+      "model": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
+      "region": "us-east-1",
+      "timestamp": "2026-09-03T09:46:11.637285+00:00"
+    },
+    {
+      "latency_s": 4.070853791999994,
+      "prompt_tokens": 38,
+      "completion_tokens": 89,
+      "max_tokens_requested": 419,
+      "model": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
+      "region": "us-east-1",
+      "timestamp": "2026-09-03T09:46:15.708255+00:00"
+    },
+    {
+      "latency_s": 11.546066083,
+      "prompt_tokens": 46,
+      "completion_tokens": 157,
+      "max_tokens_requested": 266,
+      "model": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
+      "region": "us-east-1",
+      "timestamp": "2026-09-03T09:46:27.254391+00:00"
+    },
+    {
+      "latency_s": 1.7360274999999916,
+      "prompt_tokens": 51,
+      "completion_tokens": 112,
+      "max_tokens_requested": 112,
+      "model": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
+      "region": "us-east-1",
+      "timestamp": "2026-09-03T09:46:28.990512+00:00"
+    },
+    {
+      "latency_s": 7.290104916000004,
+      "prompt_tokens": 51,
+      "completion_tokens": 155,
+      "max_tokens_requested": 550,
+      "model": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
+      "region": "us-east-1",
+      "timestamp": "2026-09-03T09:46:36.280700+00:00"
+    },
+    {
+      "latency_s": 2.913802750000002,
+      "prompt_tokens": 57,
+      "completion_tokens": 93,
+      "max_tokens_requested": 93,
+      "model": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
+      "region": "us-east-1",
+      "timestamp": "2026-09-03T09:46:39.194569+00:00"
+    },
+    {
+      "latency_s": 7.987649625000003,
+      "prompt_tokens": 46,
+      "completion_tokens": 103,
+      "max_tokens_requested": 103,
+      "model": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
+      "region": "us-east-1",
+      "timestamp": "2026-09-03T09:46:47.182268+00:00"
+    },
+    {
+      "latency_s": 7.181565584000012,
+      "prompt_tokens": 64,
+      "completion_tokens": 342,
+      "max_tokens_requested": 777,
+      "model": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
+      "region": "us-east-1",
+      "timestamp": "2026-09-03T09:46:54.363893+00:00"
+    },
+    {
+      "latency_s": 3.2511251660000084,
+      "prompt_tokens": 83,
+      "completion_tokens": 66,
+      "max_tokens_requested": 66,
+      "model": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
+      "region": "us-east-1",
+      "timestamp": "2026-09-03T09:46:57.615103+00:00"
+    },
+    {
+      "latency_s": 7.965112166999987,
+      "prompt_tokens": 51,
+      "completion_tokens": 232,
+      "max_tokens_requested": 996,
+      "model": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
+      "region": "us-east-1",
+      "timestamp": "2026-09-03T09:47:05.580287+00:00"
+    },
+    {
+      "latency_s": 4.095162875,
+      "prompt_tokens": 83,
+      "completion_tokens": 70,
+      "max_tokens_requested": 70,
+      "model": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
+      "region": "us-east-1",
+      "timestamp": "2026-09-03T09:47:09.675502+00:00"
+    },
+    {
+      "latency_s": 7.029075000000006,
+      "prompt_tokens": 46,
+      "completion_tokens": 132,
+      "max_tokens_requested": 132,
+      "model": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
+      "region": "us-east-1",
+      "timestamp": "2026-09-03T09:47:16.704659+00:00"
+    },
+    {
+      "latency_s": 8.455086834000014,
+      "prompt_tokens": 57,
+      "completion_tokens": 307,
+      "max_tokens_requested": 320,
+      "model": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
+      "region": "us-east-1",
+      "timestamp": "2026-09-03T09:47:25.159833+00:00"
+    },
+    {
+      "latency_s": 3.7523324999999943,
+      "prompt_tokens": 46,
+      "completion_tokens": 97,
+      "max_tokens_requested": 97,
+      "model": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
+      "region": "us-east-1",
+      "timestamp": "2026-09-03T09:47:28.912213+00:00"
+    },
+    {
+      "latency_s": 6.449046207999999,
+      "prompt_tokens": 46,
+      "completion_tokens": 110,
+      "max_tokens_requested": 320,
+      "model": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
+      "region": "us-east-1",
+      "timestamp": "2026-09-03T09:47:35.361369+00:00"
+    },
+    {
+      "latency_s": 6.777287166000008,
+      "prompt_tokens": 51,
+      "completion_tokens": 224,
+      "max_tokens_requested": 224,
+      "model": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
+      "region": "us-east-1",
+      "timestamp": "2026-09-03T09:47:42.138705+00:00"
+    },
+    {
+      "latency_s": 5.221088374999994,
+      "prompt_tokens": 46,
+      "completion_tokens": 156,
+      "max_tokens_requested": 763,
+      "model": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
+      "region": "us-east-1",
+      "timestamp": "2026-09-03T09:47:47.359854+00:00"
+    },
+    {
+      "latency_s": 9.581141166999998,
+      "prompt_tokens": 51,
+      "completion_tokens": 253,
+      "max_tokens_requested": 353,
+      "model": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
+      "region": "us-east-1",
+      "timestamp": "2026-09-03T09:47:56.941010+00:00"
+    },
+    {
+      "latency_s": 1.7541426659999786,
+      "prompt_tokens": 51,
+      "completion_tokens": 91,
+      "max_tokens_requested": 91,
+      "model": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
+      "region": "us-east-1",
+      "timestamp": "2026-09-03T09:47:58.695260+00:00"
+    },
+    {
+      "latency_s": 7.430452792000011,
+      "prompt_tokens": 64,
+      "completion_tokens": 54,
+      "max_tokens_requested": 54,
+      "model": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
+      "region": "us-east-1",
+      "timestamp": "2026-09-03T09:48:06.125805+00:00"
+    },
+    {
+      "latency_s": 4.0174831250000125,
+      "prompt_tokens": 38,
+      "completion_tokens": 96,
+      "max_tokens_requested": 118,
+      "model": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
+      "region": "us-east-1",
+      "timestamp": "2026-09-03T09:48:10.143369+00:00"
+    },
+    {
+      "latency_s": 7.498591542000014,
+      "prompt_tokens": 57,
+      "completion_tokens": 66,
+      "max_tokens_requested": 66,
+      "model": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
+      "region": "us-east-1",
+      "timestamp": "2026-09-03T09:48:17.642016+00:00"
+    },
+    {
+      "latency_s": 7.4492702080000015,
+      "prompt_tokens": 64,
+      "completion_tokens": 389,
+      "max_tokens_requested": 1002,
+      "model": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
+      "region": "us-east-1",
+      "timestamp": "2026-09-03T09:48:25.091318+00:00"
+    },
+    {
+      "latency_s": 5.033002333000013,
+      "prompt_tokens": 57,
+      "completion_tokens": 308,
+      "max_tokens_requested": 890,
+      "model": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
+      "region": "us-east-1",
+      "timestamp": "2026-09-03T09:48:30.124369+00:00"
+    },
+    {
+      "latency_s": 5.350236083999988,
+      "prompt_tokens": 38,
+      "completion_tokens": 94,
+      "max_tokens_requested": 1177,
+      "model": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
+      "region": "us-east-1",
+      "timestamp": "2026-09-03T09:48:35.474694+00:00"
+    },
+    {
+      "latency_s": 6.277768083000012,
+      "prompt_tokens": 46,
+      "completion_tokens": 135,
+      "max_tokens_requested": 513,
+      "model": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
+      "region": "us-east-1",
+      "timestamp": "2026-09-03T09:48:41.752502+00:00"
+    },
+    {
+      "latency_s": 3.371424917000013,
+      "prompt_tokens": 38,
+      "completion_tokens": 82,
+      "max_tokens_requested": 296,
+      "model": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
+      "region": "us-east-1",
+      "timestamp": "2026-09-03T09:48:45.124031+00:00"
+    },
+    {
+      "latency_s": 11.816795500000012,
+      "prompt_tokens": 46,
+      "completion_tokens": 185,
+      "max_tokens_requested": 800,
+      "model": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
+      "region": "us-east-1",
+      "timestamp": "2026-09-03T09:48:56.940857+00:00"
+    },
+    {
+      "latency_s": 4.942780542000008,
+      "prompt_tokens": 64,
+      "completion_tokens": 389,
+      "max_tokens_requested": 1068,
+      "model": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
+      "region": "us-east-1",
+      "timestamp": "2026-09-03T09:49:01.883725+00:00"
+    },
+    {
+      "latency_s": 2.109073292000005,
+      "prompt_tokens": 46,
+      "completion_tokens": 155,
+      "max_tokens_requested": 838,
+      "model": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
+      "region": "us-east-1",
+      "timestamp": "2026-09-03T09:49:03.992871+00:00"
+    }
+  ],
+  "tool": [
+    {
+      "latency_s": 0.161011832999975,
+      "endpoint": "github_zen",
+      "url": "https://api.github.com/zen",
+      "status": 200,
+      "timestamp": "2026-09-03T09:49:05.534029+00:00"
+    },
+    {
+      "latency_s": 1.0134289169999988,
+      "endpoint": "httpbin_get",
+      "url": "https://httpbin.org/get",
+      "status": 200,
+      "timestamp": "2026-09-03T09:49:06.547523+00:00"
+    },
+    {
+      "latency_s": 0.21261929100000998,
+      "endpoint": "github_zen",
+      "url": "https://api.github.com/zen",
+      "status": 200,
+      "timestamp": "2026-09-03T09:49:06.760177+00:00"
+    },
+    {
+      "latency_s": 0.9815326659999926,
+      "endpoint": "httpbin_get",
+      "url": "https://httpbin.org/get",
+      "status": 200,
+      "timestamp": "2026-09-03T09:49:07.741769+00:00"
+    },
+    {
+      "latency_s": 0.2374259159999781,
+      "endpoint": "github_zen",
+      "url": "https://api.github.com/zen",
+      "status": 200,
+      "timestamp": "2026-09-03T09:49:07.979586+00:00"
+    },
+    {
+      "latency_s": 0.9538140830000259,
+      "endpoint": "httpbin_get",
+      "url": "https://httpbin.org/get",
+      "status": 200,
+      "timestamp": "2026-09-03T09:49:08.933447+00:00"
+    },
+    {
+      "latency_s": 0.17303833299999383,
+      "endpoint": "github_zen",
+      "url": "https://api.github.com/zen",
+      "status": 200,
+      "timestamp": "2026-09-03T09:49:09.106654+00:00"
+    },
+    {
+      "latency_s": 1.541520792,
+      "endpoint": "httpbin_get",
+      "url": "https://httpbin.org/get",
+      "status": 200,
+      "timestamp": "2026-09-03T09:49:10.648326+00:00"
+    },
+    {
+      "latency_s": 0.17568116600003236,
+      "endpoint": "github_zen",
+      "url": "https://api.github.com/zen",
+      "status": 200,
+      "timestamp": "2026-09-03T09:49:10.824138+00:00"
+    },
+    {
+      "latency_s": 1.801321334000022,
+      "endpoint": "httpbin_get",
+      "url": "https://httpbin.org/get",
+      "status": 200,
+      "timestamp": "2026-09-03T09:49:12.625582+00:00"
+    },
+    {
+      "latency_s": 0.1797064579999983,
+      "endpoint": "github_zen",
+      "url": "https://api.github.com/zen",
+      "status": 200,
+      "timestamp": "2026-09-03T09:49:12.805464+00:00"
+    },
+    {
+      "latency_s": 0.8938329169999975,
+      "endpoint": "httpbin_get",
+      "url": "https://httpbin.org/get",
+      "status": 200,
+      "timestamp": "2026-09-03T09:49:13.699432+00:00"
+    },
+    {
+      "latency_s": 0.2076010420000216,
+      "endpoint": "github_zen",
+      "url": "https://api.github.com/zen",
+      "status": 200,
+      "timestamp": "2026-09-03T09:49:13.907226+00:00"
+    },
+    {
+      "latency_s": 0.9850551249999739,
+      "endpoint": "httpbin_get",
+      "url": "https://httpbin.org/get",
+      "status": 200,
+      "timestamp": "2026-09-03T09:49:14.892459+00:00"
+    },
+    {
+      "latency_s": 0.18709170900001482,
+      "endpoint": "github_zen",
+      "url": "https://api.github.com/zen",
+      "status": 200,
+      "timestamp": "2026-09-03T09:49:15.079761+00:00"
+    },
+    {
+      "latency_s": 1.0137581249999812,
+      "endpoint": "httpbin_get",
+      "url": "https://httpbin.org/get",
+      "status": 200,
+      "timestamp": "2026-09-03T09:49:16.093658+00:00"
+    },
+    {
+      "latency_s": 0.20382779199997003,
+      "endpoint": "github_zen",
+      "url": "https://api.github.com/zen",
+      "status": 200,
+      "timestamp": "2026-09-03T09:49:16.297597+00:00"
+    },
+    {
+      "latency_s": 1.0142328749999479,
+      "endpoint": "httpbin_get",
+      "url": "https://httpbin.org/get",
+      "status": 200,
+      "timestamp": "2026-09-03T09:49:17.311957+00:00"
+    },
+    {
+      "latency_s": 0.20444687499997372,
+      "endpoint": "github_zen",
+      "url": "https://api.github.com/zen",
+      "status": 200,
+      "timestamp": "2026-09-03T09:49:17.516605+00:00"
+    },
+    {
+      "latency_s": 1.0964717499999779,
+      "endpoint": "httpbin_get",
+      "url": "https://httpbin.org/get",
+      "status": 200,
+      "timestamp": "2026-09-03T09:49:18.613250+00:00"
+    },
+    {
+      "latency_s": 0.706964083999992,
+      "endpoint": "github_zen",
+      "url": "https://api.github.com/zen",
+      "status": 200,
+      "timestamp": "2026-09-03T09:49:19.320403+00:00"
+    },
+    {
+      "latency_s": 1.1704412500000103,
+      "endpoint": "httpbin_get",
+      "url": "https://httpbin.org/get",
+      "status": 200,
+      "timestamp": "2026-09-03T09:49:20.491000+00:00"
+    },
+    {
+      "latency_s": 0.16984195800000634,
+      "endpoint": "github_zen",
+      "url": "https://api.github.com/zen",
+      "status": 200,
+      "timestamp": "2026-09-03T09:49:20.661026+00:00"
+    },
+    {
+      "latency_s": 1.2659004999999866,
+      "endpoint": "httpbin_get",
+      "url": "https://httpbin.org/get",
+      "status": 200,
+      "timestamp": "2026-09-03T09:49:21.927035+00:00"
+    },
+    {
+      "latency_s": 1.2138969999999745,
+      "endpoint": "github_zen",
+      "url": "https://api.github.com/zen",
+      "status": 200,
+      "timestamp": "2026-09-03T09:49:23.141031+00:00"
+    },
+    {
+      "latency_s": 1.790137207999976,
+      "endpoint": "httpbin_get",
+      "url": "https://httpbin.org/get",
+      "status": 200,
+      "timestamp": "2026-09-03T09:49:24.931285+00:00"
+    },
+    {
+      "latency_s": 0.3955010839999886,
+      "endpoint": "github_zen",
+      "url": "https://api.github.com/zen",
+      "status": 200,
+      "timestamp": "2026-09-03T09:49:25.326912+00:00"
+    },
+    {
+      "latency_s": 1.1128112920000035,
+      "endpoint": "httpbin_get",
+      "url": "https://httpbin.org/get",
+      "status": 200,
+      "timestamp": "2026-09-03T09:49:26.439829+00:00"
+    },
+    {
+      "latency_s": 1.2723210409999979,
+      "endpoint": "github_zen",
+      "url": "https://api.github.com/zen",
+      "status": 200,
+      "timestamp": "2026-09-03T09:49:27.712227+00:00"
+    },
+    {
+      "latency_s": 1.0049473750000288,
+      "endpoint": "httpbin_get",
+      "url": "https://httpbin.org/get",
+      "status": 200,
+      "timestamp": "2026-09-03T09:49:28.717219+00:00"
+    }
+  ]
+}
