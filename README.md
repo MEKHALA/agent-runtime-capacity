@@ -1,6 +1,6 @@
 # agentprof: measuring what LLM agent sessions hold on serverless and agent runtimes
 
-Artifact for *Paying for Isolation: Characterising LLM Agent Turns on Serverless
+Artifact for *Held While Waiting: What LLM Agent Sessions Reserve on Serverless
 and Agent Runtimes* (submitted to ICPE 2027, Industry Track).
 
 An LLM agent step waits seconds on a model and computes for milliseconds.
