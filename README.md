@@ -23,12 +23,12 @@ model: the benchmark fakes the socket, so no tokens are spent anywhere.
 | `scripts/measure_framework_cpu.py` | LangGraph CPU per step vs request size (Table 2, Figure 1) |
 | `scripts/measure_strands_cpu.py` | The same for Strands |
 | `scripts/sensitivity.py` | Capacity analysis, deployed-data fits, Figure 1 and the scenario table |
-| `scripts/validate_capacity.py` | Direct measurement: 50–400 concurrent sessions with real waits |
+| `scripts/validate_capacity.py` | Direct measurement: 50–400 concurrent sessions with real waits, LangGraph (default) or `--framework strands` |
 | `scripts/simulate_remedy.py` | Discrete-event simulation of isolation vs sharing (Figure 3) |
 | `scripts/fig_capacity_alt.py` | Figure 2, the real-session timeline |
 | `cloud/` | Zip-based deployment of the benchmark to Lambda and AgentCore, and its driver |
 | `data/framework_cpu_raw*.json`, `data/strands_cpu_raw_x86.json` | Benchmark runs on an Apple M5 and an Intel i5-8500T |
-| `data/platform/*.json` | Benchmark runs inside AgentCore and Lambda (2 architectures × 4 memory sizes) |
+| `data/platform/*.json` | Benchmark runs inside AgentCore and Lambda (2 architectures × 4 memory sizes); `lambda_run.log` holds each invocation group's wall time (Table 3, last column) |
 | `data/deployed_turns.csv` | 3,549 warm steps of deployed LangGraph and Strands agents (τ²-bench retail, Claude Sonnet 4.5) |
 | `data/latency_raw.json` | 50 calibrated model calls and 30 tool calls |
 | `results/*.json` | Outputs of the analysis scripts, as used in the paper |
@@ -57,7 +57,7 @@ python3 tests/test_agentprof.py          # 19 tests, about a second
 | Table 2, Figure 1 (local machine rows) | `.venv/bin/python scripts/measure_framework_cpu.py --steps 40 --replicates 40 --out data/framework_cpu_raw_x86.json` then `scripts/measure_strands_cpu.py --replicates 120` | ~15 min |
 | Table 2 (AgentCore rows), Table 3 (Lambda) | `cloud/aws.py` (see `cloud/README.md`; needs an AWS account, costs under $2) | ~1 h |
 | Section 4.4, Section 5, scenario numbers, Figure 1 | `.venv/bin/python scripts/sensitivity.py` | seconds |
-| Section 5, direct measurement | `.venv/bin/python scripts/validate_capacity.py` | ~40 min, uses 5 cores |
+| Section 5, direct measurement | `.venv/bin/python scripts/validate_capacity.py`, then the same with `--framework strands` | ~35 min each, uses 5 cores |
 | Figure 2 | `.venv/bin/python scripts/fig_capacity_alt.py` | seconds |
 | Figure 3, Section 7 | `.venv/bin/python scripts/simulate_remedy.py` | ~4 min |
 
@@ -85,9 +85,10 @@ them first.
 - CPU is per-thread for LangGraph (its tool node uses a thread pool, tracked
   explicitly) and process-wide over hook windows for Strands (its model call
   spans two threads). Do not mix the two clocks.
-- A step run after a real wait on the model costs about twice the CPU of the
-  same step run back to back (`scripts/validate_capacity.py`). Benchmarks that
-  loop without waiting understate CPU by that factor.
+- A step run after a real wait on the model costs more CPU than the same step
+  run back to back: about twice for LangGraph, two to five times for Strands,
+  falling as the machine gets busier (`scripts/validate_capacity.py`).
+  Benchmarks that loop without waiting understate CPU by that factor.
 - Both AgentCore and Lambda placed our runs on several processor generations.
   Record the host (`environment` in each result file) before comparing
   constants.

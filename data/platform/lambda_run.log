@@ -1,0 +1,80 @@
+lambda arm64 512 MB langgraph #0: 66 s, cpu arm64 (CPU part 0xd0c)
+lambda arm64 512 MB langgraph #1: 66 s, cpu arm64 (CPU part 0xd0c)
+lambda arm64 512 MB langgraph #2: 61 s, cpu arm64 (CPU part 0xd40)
+lambda arm64 512 MB langgraph #3: 64 s, cpu arm64 (CPU part 0xd0c)
+  wrote data/platform/lambda-arm64-512-langgraph.json (120 runs; CPUs seen: ['arm64 (CPU part 0xd0c)', 'arm64 (CPU part 0xd40)'])
+lambda arm64 512 MB strands #0: 73 s, cpu arm64 (CPU part 0xd0c)
+lambda arm64 512 MB strands #1: 64 s, cpu arm64 (CPU part 0xd40)
+lambda arm64 512 MB strands #2: 74 s, cpu arm64 (CPU part 0xd0c)
+lambda arm64 512 MB strands #3: 72 s, cpu arm64 (CPU part 0xd0c)
+  wrote data/platform/lambda-arm64-512-strands.json (120 runs; CPUs seen: ['arm64 (CPU part 0xd0c)', 'arm64 (CPU part 0xd40)'])
+lambda arm64 1024 MB langgraph #0: 32 s, cpu arm64 (CPU part 0xd0c)
+lambda arm64 1024 MB langgraph #1: 24 s, cpu arm64 (CPU part 0xd4f)
+lambda arm64 1024 MB langgraph #2: 33 s, cpu arm64 (CPU part 0xd0c)
+lambda arm64 1024 MB langgraph #3: 32 s, cpu arm64 (CPU part 0xd0c)
+  wrote data/platform/lambda-arm64-1024-langgraph.json (120 runs; CPUs seen: ['arm64 (CPU part 0xd0c)', 'arm64 (CPU part 0xd4f)'])
+lambda arm64 1024 MB strands #0: 35 s, cpu arm64 (CPU part 0xd0c)
+lambda arm64 1024 MB strands #1: 36 s, cpu arm64 (CPU part 0xd0c)
+lambda arm64 1024 MB strands #2: 35 s, cpu arm64 (CPU part 0xd0c)
+lambda arm64 1024 MB strands #3: 32 s, cpu arm64 (CPU part 0xd40)
+  wrote data/platform/lambda-arm64-1024-strands.json (120 runs; CPUs seen: ['arm64 (CPU part 0xd0c)', 'arm64 (CPU part 0xd40)'])
+lambda arm64 1769 MB langgraph #0: 20 s, cpu arm64 (CPU part 0xd0c)
+lambda arm64 1769 MB langgraph #1: 20 s, cpu arm64 (CPU part 0xd0c)
+lambda arm64 1769 MB langgraph #2: 21 s, cpu arm64 (CPU part 0xd0c)
+lambda arm64 1769 MB langgraph #3: 19 s, cpu arm64 (CPU part 0xd40)
+  wrote data/platform/lambda-arm64-1769-langgraph.json (120 runs; CPUs seen: ['arm64 (CPU part 0xd0c)', 'arm64 (CPU part 0xd40)'])
+lambda arm64 1769 MB strands #0: 20 s, cpu arm64 (CPU part 0xd0c)
+lambda arm64 1769 MB strands #1: 19 s, cpu arm64 (CPU part 0xd40)
+lambda arm64 1769 MB strands #2: 21 s, cpu arm64 (CPU part 0xd0c)
+lambda arm64 1769 MB strands #3: 22 s, cpu arm64 (CPU part 0xd0c)
+  wrote data/platform/lambda-arm64-1769-strands.json (120 runs; CPUs seen: ['arm64 (CPU part 0xd0c)', 'arm64 (CPU part 0xd40)'])
+lambda arm64 3008 MB langgraph #0: 19 s, cpu arm64 (CPU part 0xd0c)
+lambda arm64 3008 MB langgraph #1: 19 s, cpu arm64 (CPU part 0xd0c)
+lambda arm64 3008 MB langgraph #2: 15 s, cpu arm64 (CPU part 0xd40)
+lambda arm64 3008 MB langgraph #3: 18 s, cpu arm64 (CPU part 0xd0c)
+  wrote data/platform/lambda-arm64-3008-langgraph.json (120 runs; CPUs seen: ['arm64 (CPU part 0xd0c)', 'arm64 (CPU part 0xd40)'])
+lambda arm64 3008 MB strands #0: 16 s, cpu arm64 (CPU part 0xd40)
+lambda arm64 3008 MB strands #1: 15 s, cpu arm64 (CPU part 0xd40)
+lambda arm64 3008 MB strands #2: 20 s, cpu arm64 (CPU part 0xd0c)
+lambda arm64 3008 MB strands #3: 16 s, cpu arm64 (CPU part 0xd40)
+  wrote data/platform/lambda-arm64-3008-strands.json (120 runs; CPUs seen: ['arm64 (CPU part 0xd0c)', 'arm64 (CPU part 0xd40)'])
+lambda x86_64 512 MB langgraph #0: 69 s, cpu Intel(R) Xeon(R) Processor @ 2.50GHz
+lambda x86_64 512 MB langgraph #1: 67 s, cpu Intel(R) Xeon(R) Processor @ 2.50GHz
+lambda x86_64 512 MB langgraph #2: 71 s, cpu Intel(R) Xeon(R) Processor @ 2.50GHz
+lambda x86_64 512 MB langgraph #3: 71 s, cpu Intel(R) Xeon(R) Processor @ 2.50GHz
+  wrote data/platform/lambda-x86_64-512-langgraph.json (120 runs; CPUs seen: ['Intel(R) Xeon(R) Processor @ 2.50GHz'])
+lambda x86_64 512 MB strands #0: 81 s, cpu Intel(R) Xeon(R) Processor @ 2.90GHz
+lambda x86_64 512 MB strands #1: 75 s, cpu Intel(R) Xeon(R) Processor @ 2.50GHz
+lambda x86_64 512 MB strands #2: 74 s, cpu Intel(R) Xeon(R) Processor @ 2.50GHz
+lambda x86_64 512 MB strands #3: 74 s, cpu Intel(R) Xeon(R) Processor @ 2.50GHz
+  wrote data/platform/lambda-x86_64-512-strands.json (120 runs; CPUs seen: ['Intel(R) Xeon(R) Processor @ 2.50GHz', 'Intel(R) Xeon(R) Processor @ 2.90GHz'])
+lambda x86_64 1024 MB langgraph #0: 34 s, cpu Intel(R) Xeon(R) Processor @ 2.50GHz
+lambda x86_64 1024 MB langgraph #1: 38 s, cpu Intel(R) Xeon(R) Processor
+lambda x86_64 1024 MB langgraph #2: 33 s, cpu Intel(R) Xeon(R) Processor
+lambda x86_64 1024 MB langgraph #3: 37 s, cpu Intel(R) Xeon(R) Processor
+  wrote data/platform/lambda-x86_64-1024-langgraph.json (120 runs; CPUs seen: ['Intel(R) Xeon(R) Processor', 'Intel(R) Xeon(R) Processor @ 2.50GHz'])
+lambda x86_64 1024 MB strands #0: 36 s, cpu Intel(R) Xeon(R) Processor @ 2.50GHz
+lambda x86_64 1024 MB strands #1: 35 s, cpu Intel(R) Xeon(R) Processor @ 2.50GHz
+lambda x86_64 1024 MB strands #2: 35 s, cpu Intel(R) Xeon(R) Processor @ 2.50GHz
+lambda x86_64 1024 MB strands #3: 36 s, cpu Intel(R) Xeon(R) Processor @ 2.50GHz
+  wrote data/platform/lambda-x86_64-1024-strands.json (120 runs; CPUs seen: ['Intel(R) Xeon(R) Processor @ 2.50GHz'])
+lambda x86_64 1769 MB langgraph #0: 19 s, cpu Intel(R) Xeon(R) Processor @ 2.50GHz
+lambda x86_64 1769 MB langgraph #1: 19 s, cpu Intel(R) Xeon(R) Processor @ 2.50GHz
+lambda x86_64 1769 MB langgraph #2: 24 s, cpu Intel(R) Xeon(R) Processor
+lambda x86_64 1769 MB langgraph #3: 24 s, cpu Intel(R) Xeon(R) Processor
+  wrote data/platform/lambda-x86_64-1769-langgraph.json (120 runs; CPUs seen: ['Intel(R) Xeon(R) Processor', 'Intel(R) Xeon(R) Processor @ 2.50GHz'])
+lambda x86_64 1769 MB strands #0: 19 s, cpu Intel(R) Xeon(R) Processor @ 2.50GHz
+lambda x86_64 1769 MB strands #1: 21 s, cpu Intel(R) Xeon(R) Processor @ 2.50GHz
+lambda x86_64 1769 MB strands #2: 21 s, cpu Intel(R) Xeon(R) Processor @ 2.50GHz
+lambda x86_64 1769 MB strands #3: 27 s, cpu Intel(R) Xeon(R) Processor
+  wrote data/platform/lambda-x86_64-1769-strands.json (120 runs; CPUs seen: ['Intel(R) Xeon(R) Processor', 'Intel(R) Xeon(R) Processor @ 2.50GHz'])
+lambda x86_64 3008 MB langgraph #0: 18 s, cpu Intel(R) Xeon(R) Processor @ 2.50GHz
+lambda x86_64 3008 MB langgraph #1: 18 s, cpu Intel(R) Xeon(R) Processor @ 2.50GHz
+lambda x86_64 3008 MB langgraph #2: 18 s, cpu Intel(R) Xeon(R) Processor @ 2.50GHz
+lambda x86_64 3008 MB langgraph #3: 15 s, cpu Intel(R) Xeon(R) Processor
+  wrote data/platform/lambda-x86_64-3008-langgraph.json (120 runs; CPUs seen: ['Intel(R) Xeon(R) Processor', 'Intel(R) Xeon(R) Processor @ 2.50GHz'])
+lambda x86_64 3008 MB strands #0: 17 s, cpu Intel(R) Xeon(R) Processor
+lambda x86_64 3008 MB strands #1: 20 s, cpu Intel(R) Xeon(R) Processor @ 2.50GHz
+lambda x86_64 3008 MB strands #2: 20 s, cpu Intel(R) Xeon(R) Processor @ 2.50GHz
+lambda x86_64 3008 MB strands #3: 20 s, cpu Intel(R) Xeon(R) Processor @ 2.50GHz
+  wrote data/platform/lambda-x86_64-3008-strands.json (120 runs; CPUs seen: ['Intel(R) Xeon(R) Processor', 'Intel(R) Xeon(R) Processor @ 2.50GHz'])

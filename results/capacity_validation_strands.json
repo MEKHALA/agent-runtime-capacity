@@ -1,0 +1,52 @@
+{
+ "framework": "strands",
+ "wait_config": "c3-strands-agentcore",
+ "processes": 5,
+ "steps": 40,
+ "warmup_s": 150,
+ "window_s": 300,
+ "machine": "x86_64",
+ "runs": [
+  {
+   "sessions": 50,
+   "c_ms": 6.4755270276422765,
+   "w_mean_s": 3.2809205992962345,
+   "calls": 4547,
+   "measured_cores": 0.4667614340833333,
+   "predicted_cores": 0.09849021503355483,
+   "little_cores": 0.09814740464896476,
+   "measured_over_predicted": 4.739165549839762
+  },
+  {
+   "sessions": 100,
+   "c_ms": 6.438329433333333,
+   "w_mean_s": 3.2718663578554983,
+   "calls": 9121,
+   "measured_cores": 0.8680031183633332,
+   "predicted_cores": 0.1963920394067414,
+   "little_cores": 0.19574667587144443,
+   "measured_over_predicted": 4.419746956064951
+  },
+  {
+   "sessions": 200,
+   "c_ms": 6.433399228455285,
+   "w_mean_s": 3.2594721427321875,
+   "calls": 18293,
+   "measured_cores": 1.4440919476733334,
+   "predicted_cores": 0.39397338017272104,
+   "little_cores": 0.3922872402871084,
+   "measured_over_predicted": 3.6654556382470105
+  },
+  {
+   "sessions": 400,
+   "c_ms": 6.429830056097561,
+   "w_mean_s": 3.2658520947895924,
+   "calls": 36523,
+   "measured_cores": 1.9125825391433333,
+   "predicted_cores": 0.7859750722915809,
+   "little_cores": 0.7827889437961708,
+   "measured_over_predicted": 2.4333882925409163
+  }
+ ],
+ "gc_disabled": false
+}

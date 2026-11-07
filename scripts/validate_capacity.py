@@ -20,8 +20,15 @@ For each N we report:
              no wait) and w the mean of the waits actually drawn in the window
   little     (model calls completed per second in the window) * c
 
-    .venv/bin/python scripts/validate_capacity.py
-Output: results/capacity_validation.json
+    .venv/bin/python scripts/validate_capacity.py                      # LangGraph
+    .venv/bin/python scripts/validate_capacity.py --framework strands  # Strands
+Output: results/capacity_validation.json (LangGraph) or
+        results/capacity_validation_strands.json
+
+With --framework strands each session is the transport-mocked Strands agent of
+measure_strands_cpu.py, and the waits are drawn from the 1,227 deployed Strands
+model calls (config c3-strands-agentcore). Everything else is identical, so the
+two runs differ only in the framework.
 """
 from __future__ import annotations
 
@@ -42,26 +49,20 @@ PROCESSES = 5            # this machine has 6 cores; leave one for the OS
 STEPS = 40
 WARMUP_S, WINDOW_S = 150, 300
 SEED = 20261028
+FRAMEWORK = "langgraph"  # or "strands"; set from the command line in main()
+WAIT_CONFIG = {"langgraph": "c2-langgraph-agentcore", "strands": "c3-strands-agentcore"}
 
 
 def load_waits() -> list[float]:
     rows = csv.DictReader(l for l in open(ROOT / "data" / "deployed_turns.csv") if not l.startswith("#"))
-    return [float(r["model_ms"]) / 1000 for r in rows if r["config"] == "c2-langgraph-agentcore"]
+    return [float(r["model_ms"]) / 1000 for r in rows if r["config"] == WAIT_CONFIG[FRAMEWORK]]
 
 
-def _session(rng, waits, counters, lock, sleep: bool) -> None:
-    """One 40-step LangGraph session over a socket mock that sleeps for a drawn wait."""
-    import boto3
+def _intercept_factory(rng, waits, counters, lock, sleep: bool, responses):
+    """The socket mock shared by both frameworks: sleep for a drawn wait, count it,
+    answer with the next scripted Converse body."""
     from botocore.awsrequest import AWSResponse
-    from langchain_core.messages import HumanMessage
-    from agentprof import Tracer
-    from bedrock_transport_mock import ScriptedConverseResponses, _FakeRawResponse
-    from measure_framework_cpu import build_graph, build_llm_with_tools, build_tool_node, build_tools
-
-    tracer = Tracer()
-    client = boto3.session.Session().client("bedrock-runtime", region_name="us-east-1",
-                                            aws_access_key_id="test", aws_secret_access_key="test")
-    responses = ScriptedConverseResponses(n_tool_calls=STEPS)
+    from bedrock_transport_mock import _FakeRawResponse
 
     def intercept(request, **_):
         if sleep:
@@ -74,12 +75,54 @@ def _session(rng, waits, counters, lock, sleep: bool) -> None:
             counters["wait_s"] += w
         return AWSResponse(request.url, 200, {"Content-Type": "application/json"},
                            _FakeRawResponse(responses.next_body()))
+    return intercept
 
+
+def _session(rng, waits, counters, lock, sleep: bool) -> None:
+    """One 40-step session over a socket mock that sleeps for a drawn wait."""
+    from bedrock_transport_mock import ScriptedConverseResponses
+    responses = ScriptedConverseResponses(n_tool_calls=STEPS)
+    intercept = _intercept_factory(rng, waits, counters, lock, sleep, responses)
+    if FRAMEWORK == "strands":
+        _session_strands(intercept)
+    else:
+        _session_langgraph(intercept)
+
+
+def _session_langgraph(intercept) -> None:
+    import boto3
+    from langchain_core.messages import HumanMessage
+    from agentprof import Tracer
+    from measure_framework_cpu import build_graph, build_llm_with_tools, build_tool_node, build_tools
+
+    tracer = Tracer()
+    client = boto3.session.Session().client("bedrock-runtime", region_name="us-east-1",
+                                            aws_access_key_id="test", aws_secret_access_key="test")
     client.meta.events.register("before-send.bedrock-runtime.Converse", intercept)
     tools = build_tools(tracer)
     graph = build_graph(tracer, None, build_llm_with_tools(tracer, client, tools), build_tool_node(tools, []))
     graph.invoke({"messages": [HumanMessage(content="Work through this multi-step task.")]},
                  config={"configurable": {"thread_id": "v"}, "recursion_limit": STEPS * 3 + 10})
+
+
+def _session_strands(intercept) -> None:
+    """The Strands agent of measure_strands_cpu.py: same tools, no system prompt,
+    full history kept, one tool per step, synchronous call."""
+    import boto3
+    from strands import Agent
+    from strands.agent.conversation_manager.null_conversation_manager import NullConversationManager
+    from strands.models.bedrock import BedrockModel
+    from strands.tools.executors.sequential import SequentialToolExecutor
+    from measure_framework_cpu import MODEL_ID
+    from measure_strands_cpu import get_weather, run_calculation, search_docs
+
+    session = boto3.Session(aws_access_key_id="test", aws_secret_access_key="test", region_name="us-east-1")
+    model = BedrockModel(model_id=MODEL_ID, boto_session=session, streaming=False, max_tokens=256)
+    model.client.meta.events.register("before-send.bedrock-runtime.Converse", intercept)
+    agent = Agent(model=model, tools=[search_docs, get_weather, run_calculation],
+                  conversation_manager=NullConversationManager(),
+                  tool_executor=SequentialToolExecutor(), callback_handler=None)
+    agent("Work through this multi-step task.")
 
 
 def worker(n_threads: int, seed: int, t_start: float, t_end: float, waits: list[float], q) -> None:
@@ -124,7 +167,8 @@ def main(tag: str = "") -> None:
     ctx = mp.get_context("fork")
     q = ctx.Queue()
     c = None
-    out = {"processes": PROCESSES, "steps": STEPS, "warmup_s": WARMUP_S, "window_s": WINDOW_S,
+    out = {"framework": FRAMEWORK, "wait_config": WAIT_CONFIG[FRAMEWORK], "processes": PROCESSES,
+           "steps": STEPS, "warmup_s": WARMUP_S, "window_s": WINDOW_S,
            "machine": os.uname().machine, "runs": []}
     for n in N_GRID:
         # Measure c fresh before each N, in a child, so that it reflects the same interpreter state.
@@ -157,4 +201,16 @@ def main(tag: str = "") -> None:
 
 
 if __name__ == "__main__":
-    main(sys.argv[1] if len(sys.argv) > 1 else "")
+    import argparse
+    ap = argparse.ArgumentParser()
+    ap.add_argument("tag", nargs="?", default="", help="suffix for the output file name")
+    ap.add_argument("--framework", choices=("langgraph", "strands"), default="langgraph")
+    ap.add_argument("--quick", action="store_true", help="smoke test: N=10, 10 s warm-up, 30 s window")
+    a = ap.parse_args()
+    FRAMEWORK = a.framework
+    if a.quick:
+        N_GRID, WARMUP_S, WINDOW_S = (10,), 10, 30
+    tag = a.tag or (FRAMEWORK if FRAMEWORK != "langgraph" else "")
+    if a.quick:
+        tag = (tag + "_" if tag else "") + "quick"
+    main(tag)
