@@ -48,7 +48,8 @@ BASE_GB, M_SESS_GB = 0.5, 0.010  # process base + per-session state (illustrativ
 M_ISO_GB = BASE_GB + M_SESS_GB   # an isolated environment is one process with one session,
                                  # so k=1 multiplexing and isolation reserve the same memory
 IDLE_TIMEOUT_S = 900             # AgentCore / Foundry default idle timeout
-CPU_MS_GRID = (4.5, 11.7, 20.3)  # deployed bracket (AgentCore-measured): low / LangGraph mid / Strands high
+CPU_MS_GRID = (4.5, 11.7, 20.3, 38.9)  # deployed bracket (AgentCore-measured): low / LangGraph mid / Strands high,
+                                       # and the Strands high estimate after the idle-wait factor (Table "range")
 K_GRID = (1, 4, 16, 64, 256)
 
 
@@ -226,7 +227,7 @@ def figure(out, median_wait_ms):
     ax.set_title("(a) What 1,000 concurrent sessions hold", loc="left")
     ax.legend(loc="lower left", frameon=False)
 
-    for cpu_ms, col, mk in zip(CPU_MS_GRID, [MUTED, BLUE, GREEN], ["^", "o", "s"]):
+    for cpu_ms, col, mk in zip(CPU_MS_GRID, [MUTED, BLUE, GREEN, ORANGE], ["^", "o", "s", "D"]):
         rr = sorted([r for r in runs if r["policy"] == "multiplexed" and r["cpu_ms"] == cpu_ms], key=lambda r: r["k"])
         bx.plot([r["k"] for r in rr], [r["added_latency_ms"]["p99"] for r in rr], mk + "-", color=col, ms=3.2, lw=1,
                 label=f"p99, CPU {cpu_ms:g} ms/step")

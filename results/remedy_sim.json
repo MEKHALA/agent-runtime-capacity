@@ -376,6 +376,128 @@
     "p999": 124.30262284954311
    },
    "cpu_util_per_env": 0.6320228858221081
+  },
+  {
+   "policy": "isolated",
+   "cpu_ms": 38.9,
+   "tail_s": 0.0,
+   "envs_mean": 1007.3041666666667,
+   "envs_p99": 1069.0,
+   "mem_gb_mean": 513.725125,
+   "arrival_per_s": 29.936300502282258,
+   "mean_session_s": 33.404261155240704,
+   "added_latency_ms": {
+    "p50": 0.0,
+    "p99": 0.0,
+    "p999": 0.0
+   },
+   "cpu_util": 0.01154817738792623
+  },
+  {
+   "policy": "isolated",
+   "cpu_ms": 38.9,
+   "tail_s": 900.0,
+   "envs_mean": 28211.145833333332,
+   "envs_p99": 28365.01,
+   "mem_gb_mean": 14387.684374999999,
+   "arrival_per_s": 29.936300502282258,
+   "mean_session_s": 33.404261155240704,
+   "added_latency_ms": {
+    "p50": 0.0,
+    "p99": 0.0,
+    "p999": 0.0
+   },
+   "cpu_util": 0.01154817738792623
+  },
+  {
+   "policy": "multiplexed",
+   "k": 1,
+   "cpu_ms": 38.9,
+   "tail_s": 0.0,
+   "envs_mean": 1007.3041666666667,
+   "envs_p99": 1069.0,
+   "mem_gb_mean": 513.7251249999999,
+   "arrival_per_s": 29.936300502282258,
+   "mean_session_s": 33.404261155240704,
+   "sessions_mean": 1007.3041666666667,
+   "added_latency_ms": {
+    "p50": 0.0,
+    "p99": 0.0,
+    "p999": 0.0
+   },
+   "cpu_util_per_env": 0.005774088693963115
+  },
+  {
+   "policy": "multiplexed",
+   "k": 4,
+   "cpu_ms": 38.9,
+   "tail_s": 0.0,
+   "envs_mean": 258.0491666666667,
+   "envs_p99": 271.0,
+   "mem_gb_mean": 139.09765,
+   "arrival_per_s": 29.936300502282258,
+   "mean_session_s": 33.404261155240704,
+   "sessions_mean": 1007.3066666666666,
+   "added_latency_ms": {
+    "p50": 0.0,
+    "p99": 0.0,
+    "p999": 0.0
+   },
+   "cpu_util_per_env": 0.022539418012796034
+  },
+  {
+   "policy": "multiplexed",
+   "k": 16,
+   "cpu_ms": 38.9,
+   "tail_s": 0.0,
+   "envs_mean": 65.4525,
+   "envs_p99": 68.0,
+   "mem_gb_mean": 42.799908333333335,
+   "arrival_per_s": 29.936300502282258,
+   "mean_session_s": 33.404261155240704,
+   "sessions_mean": 1007.3658333333333,
+   "added_latency_ms": {
+    "p50": 0.0,
+    "p99": 7.978378091697775,
+    "p999": 31.338571324856936
+   },
+   "cpu_util_per_env": 0.08886779983858113
+  },
+  {
+   "policy": "multiplexed",
+   "k": 64,
+   "cpu_ms": 38.9,
+   "tail_s": 0.0,
+   "envs_mean": 16.840833333333332,
+   "envs_p99": 18.0,
+   "mem_gb_mean": 18.503049999999998,
+   "arrival_per_s": 29.936300502282258,
+   "mean_session_s": 33.404261155240704,
+   "sessions_mean": 1008.2633333333333,
+   "added_latency_ms": {
+    "p50": 0.0,
+    "p99": 39.66894666142694,
+    "p999": 67.84182460748184
+   },
+   "cpu_util_per_env": 0.3456955958357701
+  },
+  {
+   "policy": "multiplexed",
+   "k": 256,
+   "cpu_ms": 38.9,
+   "tail_s": 0.0,
+   "envs_mean": 6.0,
+   "envs_p99": 6.0,
+   "mem_gb_mean": 17.19625,
+   "arrival_per_s": 29.936300502282258,
+   "mean_session_s": 33.404261155240704,
+   "sessions_mean": 1419.625,
+   "added_latency_ms": {
+    "p50": 1560.9580592874863,
+    "p99": 1871.569384949544,
+    "p999": 1954.18388749477
+   },
+   "cpu_util_per_env": 1.3661734436945645
   }
  ]
 }

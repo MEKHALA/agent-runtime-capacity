@@ -27,7 +27,7 @@ plt.rcParams.update({"font.family": "serif", "font.size": 7.5, "text.color": INK
 d = json.load(open(P("results", "remedy_sim.json")))
 runs = d["runs"]
 cpu_levels = sorted({r["cpu_ms"] for r in runs})
-mid = cpu_levels[len(cpu_levels) // 2]
+mid = 11.7   # environment counts are read at the LangGraph midpoint; they barely move with CPU
 
 
 def envs(policy, **kw):
@@ -36,16 +36,18 @@ def envs(policy, **kw):
     return r["envs_mean"]
 
 
-def p99_range(k):
-    v = [x["added_latency_ms"]["p99"] for x in runs if x["policy"] == "multiplexed" and x["k"] == k]
-    return min(v), max(v)
-
-
 def delay_text(k):
-    lo, hi = p99_range(k)
+    rr = [x for x in runs if x["policy"] == "multiplexed" and x["k"] == k]
+    # a run whose vCPUs are asked for more than they have never reaches a steady delay
+    over = [x for x in rr if x["cpu_util_per_env"] >= 1]
+    v = [x["added_latency_ms"]["p99"] for x in rr if x["cpu_util_per_env"] < 1]
+    lo, hi = min(v), max(v)
     if hi < 0.5:
         return "no extra delay"
-    return f"+{lo:.0f}–{hi:.0f} ms per step" if lo >= 0.5 else f"up to +{hi:.0f} ms per step"
+    txt = f"+{lo:.0f}–{hi:.0f} ms per step" if lo >= 0.5 else f"up to +{hi:.0f} ms per step"
+    if over:
+        txt += f";\noverloaded at {max(x['cpu_ms'] for x in over):g} ms of CPU per step"
+    return txt
 
 
 rows = [  # (label, environments, colour, hatch, delay text)
@@ -60,14 +62,14 @@ fig, ax = plt.subplots(figsize=(3.4, 2.75))
 y = np.arange(len(rows))[::-1]
 for yi, (label, n, col, hatch, delay) in zip(y, rows):
     ax.barh(yi, n, color=col, alpha=0.45 if hatch else 0.85, edgecolor=col, lw=0.6, height=0.58)
-    ax.text(n * 1.25, yi + 0.13, f"{n:,.0f}", va="center", fontsize=7.2, fontweight="bold")
-    ax.text(n * 1.25, yi - 0.17, delay, va="center", fontsize=6.3, color=MUTED)
+    ax.text(n * 1.25, yi + 0.15, f"{n:,.0f}", va="center", fontsize=7.2, fontweight="bold")
+    ax.text(n * 1.25, yi - 0.03, delay, va="top", fontsize=6.3, color=MUTED, linespacing=1.05)
 ax.set_yticks(y); ax.set_yticklabels([r[0] for r in rows], fontsize=6.6, linespacing=1.1)
 ax.set_xscale("log"); ax.set_xlim(1, 4e5)
 from matplotlib.ticker import NullLocator
 ax.xaxis.set_minor_locator(NullLocator())
-ax.set_xticks([1, 10, 100, 1000, 10000]); ax.set_xticklabels(["1", "10", "100", "1,000", "10,000"])
-ax.set_xlabel("environments needed for 1,000 concurrent sessions")
+ax.set_xticks([1, 10, 100, 1000, 10000, 100000]); ax.set_xticklabels(["1", "10", "100", "1,000", "10,000", "100,000"])
+ax.set_xlabel("environments needed for 1,000 concurrent sessions (log scale)")
 ax.grid(True, axis="x"); ax.tick_params(axis="y", length=0)
 for sp in ("top", "right"):
     ax.spines[sp].set_visible(False)
@@ -75,7 +77,7 @@ ax.legend(handles=[Patch(color=ISO, alpha=0.85, label="one environment per sessi
                    Patch(color=SHARED, alpha=0.85, label="sessions share an environment")],
           loc="lower center", bbox_to_anchor=(0.45, 1.0), ncol=1, frameon=False, fontsize=6.4)
 fig.text(0.0, -0.06, "Delay: extra time a step waits for CPU when sharing, in the slowest 1% of steps,\n"
-         f"across the measured CPU range. A typical model call takes {2741:,} ms.",
+         f"across the estimated CPU range ({cpu_levels[0]:g} to {cpu_levels[-1]:g} ms per step). A typical model call takes {2741:,} ms.",
          fontsize=5.9, color=MUTED, va="top")
 for ext in ("pdf", "png"):
     fig.savefig(P("paper", "figures", f"fig_remedy_bars.{ext}"), dpi=300)
